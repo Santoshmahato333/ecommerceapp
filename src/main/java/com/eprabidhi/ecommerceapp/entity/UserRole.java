@@ -29,7 +29,7 @@ public class UserRole implements Serializable{
 	public UserRole() {
 		super();
 	}
-
+// this is role base login system
 	public UserRole(int id, String role, UserDetail userDetail) {
 		super();
 		this.id = id;
