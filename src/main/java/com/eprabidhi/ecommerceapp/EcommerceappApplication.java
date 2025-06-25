@@ -13,7 +13,7 @@ public class EcommerceappApplication {
 	}
 	
 	@Bean 
-	public BCryptPasswordEncoder getPasswrodEncoder() {
+	public BCryptPasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 

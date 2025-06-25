@@ -51,7 +51,7 @@ public class HomeController {
     public String openShop(Model model) {
     	model.addAttribute("popular_products",productService.getAllProducts());
         return "shop";  // maps to product.jsp
-    }
+    } 
     @GetMapping("/register")
     public String openRegister() {
         return "register";  // maps to product.jsp
@@ -77,7 +77,7 @@ public class HomeController {
     public String registerUser(@ModelAttribute UserDetail userDetail) {
     	
     	if(!userDetail.getPassword().equals(userDetail.getCpassword())) {
-    		return "redirct:/register?password_mismatch=ture";
+    		return "redirct:/register?password_mismatch=true";
     	}
         userDetail.setPassword(passwordEncoder.encode(userDetail.getPassword()));
     	

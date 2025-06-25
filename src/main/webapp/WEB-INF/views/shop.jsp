@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce Homepage</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/ShopPage.css">
 </head>
 <body>
     <header>
@@ -35,7 +35,7 @@
                 <p class="card-details">Stock: ${product.quantity }</p>
                 <div class="card-actions">
                     <a href="<c:url value="/product_detail/${product.id }"/>">View Detail</a>
-                    <button >Add to Cart</button>
+                    <a href="<c:url value="/user/cart/add/${product.id }"/>" >Add to Cart</a>
                 </div>
             </div>
         </div>

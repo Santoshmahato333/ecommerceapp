@@ -10,7 +10,8 @@
                     <li><a href="about">About</a></li>
                     <li><a href="contact">Contact</a></li>  
                     <li><a href="register">SignUP</a></li>   
-                    <li><a href="login">login</a></li>                  
+                    <li><a href="login">login</a></li>   
+                    <li><a href="cart">cart</a></li>
                 </ul>
             </nav>
         </header>
