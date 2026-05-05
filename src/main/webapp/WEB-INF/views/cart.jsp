@@ -38,6 +38,15 @@
 <body>
     <h1>My Cart Page</h1>
 
+    <div style="width:80%;margin:0 auto 20px auto;text-align:right;">
+        <form action="${pageContext.request.contextPath}/user/order/add" method="post" style="display:inline-block;">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+            <input type="hidden" name="payment_mode" value="cod">
+            <button type="submit" class="btn btn-update">Checkout with COD</button>
+        </form>
+        <a href="${pageContext.request.contextPath}/user/order/checkout" class="btn btn-update">Review Checkout</a>
+    </div>
+
     <table>
         <thead>
             <tr>

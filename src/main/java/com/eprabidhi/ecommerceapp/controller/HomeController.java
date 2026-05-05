@@ -1,5 +1,7 @@
 package com.eprabidhi.ecommerceapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.eprabidhi.ecommerceapp.entity.UserDetail;
 import com.eprabidhi.ecommerceapp.entity.UserRole;
+import com.eprabidhi.ecommerceapp.entity.Product;
 import com.eprabidhi.ecommerceapp.service.ProductService;
 import com.eprabidhi.ecommerceapp.service.UserDetailService;
 
@@ -44,14 +47,29 @@ public class HomeController {
     }
 
     @GetMapping("/product")
-    public String openProduct() {
+	public String openProduct(Model model) {
+		model.addAttribute("popular_products", productService.getAllProducts());
         return "product";  // maps to product.jsp
     }
     @GetMapping("/shop")
     public String openShop(Model model) {
-    	model.addAttribute("popular_products",productService.getAllProducts());
-        return "shop";  // maps to product.jsp
+		model.addAttribute("popular_products",productService.getAllProducts());
+		return "shop";  // maps to shop.jsp
     } 
+
+	@GetMapping("/product_detail/{id}")
+	public String openProductDetail(@org.springframework.web.bind.annotation.PathVariable int id, Model model) {
+		Product product = productService.getProductById(id);
+		model.addAttribute("product", product);
+		model.addAttribute("related_products", productService.getAllProducts().stream()
+				.filter(p -> p.getCategory() != null && product.getCategory() != null
+						&& p.getCategory().getId() == product.getCategory().getId()
+						&& p.getId() != product.getId())
+				.limit(4)
+				.toList());
+		return "product-detail";
+	}
+
     @GetMapping("/register")
     public String openRegister() {
         return "register";  // maps to product.jsp

@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-        <header>
-            <nav>
-                <div class="logo">ShoesOfNepal</div>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="product">Shop</a></li>
-                    <li><a href="shop">product</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>  
-                    <li><a href="register">SignUP</a></li>   
-                    <li><a href="login">login</a></li>   
-                    <li><a href="cart">cart</a></li>
-                </ul>
-            </nav>
-        </header>
-        
+<header>
+    <nav>
+        <div class="logo">ShoesOfNepal</div>
+        <ul>
+            <li><a href="${pageContext.request.contextPath}/">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/shop">Shop</a></li>
+            <li><a href="${pageContext.request.contextPath}/product">Products</a></li>
+            <li><a href="${pageContext.request.contextPath}/about">About</a></li>
+            <li><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
+            <li><a href="${pageContext.request.contextPath}/register">Sign Up</a></li>
+            <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
+            <li><a href="${pageContext.request.contextPath}/user/cart/show">Cart</a></li>
+            <li><a href="${pageContext.request.contextPath}/user/order/show">Orders</a></li>
+        </ul>
+    </nav>
+</header>
+
+    </nav>

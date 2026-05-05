@@ -18,7 +18,7 @@
     
     <section class="hero">
         <h2>Welcome to the Best Shopping Experience!</h2>
-        <button id="shopNowBtn">Shop Now</button>
+        <a id="shopNowBtn" href="${pageContext.request.contextPath}/product">Shop Now</a>
     </section>
 
 	<section>
@@ -26,7 +26,7 @@
 	
 	<c:forEach items="${popular_products }" var="product">
         <div class="product-card">
-            <img src="<c:url value="${product.imageName }"/>" alt="${product.imageName }">
+            <img src="${pageContext.request.contextPath}/images/${product.imageName }" alt="${product.imageName }">
             <div class="card-content">
                 <h3 class="card-title">${product.name }</h3>
                 <p class="card-description">${product.description }</p>
@@ -34,8 +34,8 @@
                 <p class="card-details">Category: ${product.category.name }</p>
                 <p class="card-details">Stock: ${product.quantity }</p>
                 <div class="card-actions">
-                    <a href="<c:url value="/product_detail/${product.id }"/>">View Detail</a>
-                    <a href="<c:url value="/user/cart/add/${product.id }"/>" >Add to Cart</a>
+                    <a href="${pageContext.request.contextPath}/product_detail/${product.id }">View Detail</a>
+                    <a href="${pageContext.request.contextPath}/user/cart/add/${product.id }">Add to Cart</a>
                 </div>
             </div>
         </div>
@@ -45,6 +45,6 @@
     </div>
 	</section>
 
-    <script src="js/home.js"></script>
+    <script src="${pageContext.request.contextPath}/js/home.js"></script>
 </body>
 </html>

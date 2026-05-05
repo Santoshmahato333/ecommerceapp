@@ -4,12 +4,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -28,8 +27,8 @@ public class OrderDetail implements Serializable {
 	@Column(name="order_id")
 	private int id;
 	
-	@OneToMany(mappedBy="orderDetail")
-	private List<OrderProduct> orderProduct;
+	@OneToMany(mappedBy="orderDetail", cascade=jakarta.persistence.CascadeType.ALL)
+	private List<OrderProduct> orderedProducts;
 	
 	private LocalDate orderDate;
 	
@@ -39,7 +38,7 @@ public class OrderDetail implements Serializable {
 	
 	private String  status;
 	
-	private String amount;
+	private double amount;
 	
 	private String modeOfPayment;
 	
@@ -51,11 +50,11 @@ public class OrderDetail implements Serializable {
 		super();
 	}
 
-	public OrderDetail(int id, List<OrderProduct> orderProduct, LocalDate orderDate, UserDetail userDetail,
-			String status, String amount, String modeOfPayment) {
+	public OrderDetail(int id, List<OrderProduct> orderedProducts, LocalDate orderDate, UserDetail userDetail,
+			String status, double amount, String modeOfPayment) {
 		super();
 		this.id = id;
-		this.orderProduct = orderProduct;
+		this.orderedProducts = orderedProducts;
 		this.orderDate = orderDate;
 		this.userDetail = userDetail;
 		this.status = status;
@@ -71,12 +70,12 @@ public class OrderDetail implements Serializable {
 		this.id = id;
 	}
 
-	public List<OrderProduct> getOrderProduct() {
-		return orderProduct;
+	public List<OrderProduct> getOrderedProducts() {
+		return orderedProducts;
 	}
 
-	public void setOrderProduct(List<OrderProduct> orderProduct) {
-		this.orderProduct = orderProduct;
+	public void setOrderedProducts(List<OrderProduct> orderedProducts) {
+		this.orderedProducts = orderedProducts;
 	}
 
 	public LocalDate getOrderDate() {
@@ -103,11 +102,11 @@ public class OrderDetail implements Serializable {
 		this.status = status;
 	}
 
-	public String getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 

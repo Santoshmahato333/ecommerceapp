@@ -37,7 +37,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public void deleteUserCart(UserDetail userDetail) {
-        cartDao.findByUserDetail(userDetail);
+        cartDao.deleteAll(cartDao.findByUserDetail(userDetail));
     }
 
     @Override
